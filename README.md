@@ -13,6 +13,7 @@ An AI-powered e-commerce platform where users can chat with an intelligent assis
 ## Tech Stack
 
 ### Frontend
+
 - **Next.js 16** - React framework with App Router
 - **React 19** - UI library with latest features
 - **TypeScript 5** - Type-safe development
@@ -22,18 +23,21 @@ An AI-powered e-commerce platform where users can chat with an intelligent assis
 - **Hugeicons** - Icon library
 
 ### Backend & Data
+
 - **oRPC** - End-to-end typesafe API layer
 - **Drizzle ORM** - TypeScript ORM for PostgreSQL
 - **PostgreSQL** - Primary database
 - **Better Auth** - Authentication system
 
 ### State & Forms
+
 - **TanStack Query** - Server state management
 - **TanStack Form** - Form handling with Zod validation
 - **Zustand** - Client state management
 - **nuqs** - URL state management
 
 ### Tooling
+
 - **T3 Env** - Type-safe environment variables
 - **Zod** - Schema validation
 - **ESLint** - Code linting
@@ -96,16 +100,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `bun dev` | Start development server |
-| `bun run build` | Create production build |
-| `bun start` | Start production server |
-| `bun run lint` | Run ESLint |
-| `bun run db:generate` | Generate database migrations |
-| `bun run db:migrate` | Apply database migrations |
-| `bun run db:push` | Push schema to database (dev) |
-| `bun run db:studio` | Open Drizzle Studio |
+| Command               | Description                   |
+| --------------------- | ----------------------------- |
+| `bun dev`             | Start development server      |
+| `bun run build`       | Create production build       |
+| `bun start`           | Start production server       |
+| `bun run lint`        | Run ESLint                    |
+| `bun run db:generate` | Generate database migrations  |
+| `bun run db:migrate`  | Apply database migrations     |
+| `bun run db:push`     | Push schema to database (dev) |
+| `bun run db:studio`   | Open Drizzle Studio           |
 
 ## Project Structure
 
