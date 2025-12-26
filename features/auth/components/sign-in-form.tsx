@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppForm } from "@/hooks/use-app-form";
 import { signInSchema, type SignInFormValues } from "../schemas";
@@ -66,6 +67,15 @@ export function SignInForm() {
           />
         )}
       </form.AppField>
+
+      <div className="text-right">
+        <Link
+          href="/auth/forgot-password"
+          className="text-sm text-muted-foreground hover:text-primary hover:underline"
+        >
+          Forgot password?
+        </Link>
+      </div>
 
       {error && <p className="text-sm text-destructive">{error}</p>}
 

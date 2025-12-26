@@ -1,5 +1,6 @@
 import { ORPCError, os } from "@orpc/server";
 import { getServerSession } from "@/lib/get-server-session";
+import { auth } from "@/lib/auth";
 
 /**
  * Required authentication middleware
@@ -28,3 +29,37 @@ export const optionalAuthMiddleware = os.middleware(async ({ next }) => {
     context: { session },
   });
 });
+
+/**
+ * Permission-based middleware factory
+ * Checks if the authenticated user has the required permission
+ */
+export function requirePermission(
+  resource: string,
+  actions: string | string[]
+) {
+  const actionList = Array.isArray(actions) ? actions : [actions];
+
+  return os.middleware(async ({ next }) => {
+    const session = await getServerSession();
+
+    if (!session?.user) {
+      throw new ORPCError("UNAUTHORIZED");
+    }
+
+    const hasPermission = await auth.api.userHasPermission({
+      body: {
+        userId: session.user.id,
+        permission: { [resource]: actionList },
+      },
+    });
+
+    if (!hasPermission) {
+      throw new ORPCError("FORBIDDEN");
+    }
+
+    return next({
+      context: { session },
+    });
+  });
+}
