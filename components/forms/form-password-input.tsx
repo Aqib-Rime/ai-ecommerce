@@ -12,13 +12,23 @@ import {
 } from "@/components/ui/field";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ViewIcon, ViewOffIcon } from "@hugeicons/core-free-icons";
+import { cn } from "@/lib/utils";
 
-interface FormPasswordInputProps extends Omit<React.ComponentProps<"input">, "value" | "onChange" | "onBlur" | "type"> {
+interface FormPasswordInputProps
+  extends Omit<
+    React.ComponentProps<"input">,
+    "value" | "onChange" | "onBlur" | "type"
+  > {
   label?: string;
   description?: string;
 }
 
-export function FormPasswordInput({ label, description, className, ...props }: FormPasswordInputProps) {
+export function FormPasswordInput({
+  label,
+  description,
+  className,
+  ...props
+}: FormPasswordInputProps) {
   const field = useFieldContext<string>();
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -35,7 +45,7 @@ export function FormPasswordInput({ label, description, className, ...props }: F
           onChange={(e) => field.handleChange(e.target.value)}
           onBlur={field.handleBlur}
           aria-invalid={field.state.meta.errors.length > 0}
-          className="pr-9"
+          className={cn("pr-9", className)}
           {...props}
         />
         <Button
@@ -51,7 +61,9 @@ export function FormPasswordInput({ label, description, className, ...props }: F
             strokeWidth={2}
             className="size-3.5 text-muted-foreground"
           />
-          <span className="sr-only">{showPassword ? "Hide password" : "Show password"}</span>
+          <span className="sr-only">
+            {showPassword ? "Hide password" : "Show password"}
+          </span>
         </Button>
       </div>
       <FieldError />
