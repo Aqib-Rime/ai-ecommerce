@@ -2,9 +2,15 @@
 
 import { useFieldContext } from "@/hooks/form-context";
 import { Textarea } from "@/components/ui/textarea";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 
-interface FormTextareaProps extends Omit<React.ComponentProps<"textarea">, "value" | "onChange" | "onBlur"> {
+interface FormTextareaProps
+  extends Omit<React.ComponentProps<"textarea">, "value" | "onChange" | "onBlur"> {
   label?: string;
   description?: string;
 }
@@ -25,7 +31,7 @@ export function FormTextarea({ label, description, ...props }: FormTextareaProps
         aria-invalid={field.state.meta.errors.length > 0}
         {...props}
       />
-      <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+      <FieldError />
     </Field>
   );
 }

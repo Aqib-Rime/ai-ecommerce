@@ -3,7 +3,12 @@
 import { useFieldContext } from "@/hooks/form-context";
 import { Checkbox as CheckboxPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 
@@ -40,7 +45,7 @@ export function FormCheckbox({ label, description, disabled }: FormCheckboxProps
           </FieldLabel>
         )}
         {description && <FieldDescription>{description}</FieldDescription>}
-        <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+        <FieldError />
       </div>
     </Field>
   );

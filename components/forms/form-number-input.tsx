@@ -3,7 +3,12 @@
 import * as React from "react";
 import { useFieldContext } from "@/hooks/form-context";
 import { Input } from "@/components/ui/input";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 
 interface FormNumberInputProps extends Omit<React.ComponentProps<"input">, "value" | "onChange" | "onBlur" | "type"> {
   label?: string;
@@ -56,7 +61,7 @@ export function FormNumberInput({
         aria-invalid={field.state.meta.errors.length > 0}
         {...props}
       />
-      <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+      <FieldError />
     </Field>
   );
 }

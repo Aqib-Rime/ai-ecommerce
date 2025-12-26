@@ -3,7 +3,12 @@
 import { useFieldContext } from "@/hooks/form-context";
 import { Switch as SwitchPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 
 interface FormSwitchProps {
   label?: string;
@@ -40,7 +45,7 @@ export function FormSwitch({ label, description, disabled }: FormSwitchProps) {
           </FieldLabel>
         )}
         {description && <FieldDescription>{description}</FieldDescription>}
-        <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+        <FieldError />
       </div>
     </Field>
   );

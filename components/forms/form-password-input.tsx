@@ -4,7 +4,12 @@ import * as React from "react";
 import { useFieldContext } from "@/hooks/form-context";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ViewIcon, ViewOffIcon } from "@hugeicons/core-free-icons";
 
@@ -49,7 +54,7 @@ export function FormPasswordInput({ label, description, className, ...props }: F
           <span className="sr-only">{showPassword ? "Hide password" : "Show password"}</span>
         </Button>
       </div>
-      <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+      <FieldError />
     </Field>
   );
 }
