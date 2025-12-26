@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI E-Commerce
+
+An AI-powered e-commerce platform where users can chat with an intelligent assistant to discover products, get personalized recommendations, and complete purchases through a conversational interface with dynamic AI-generated UI elements.
+
+## Features
+
+- **Conversational Shopping** - Chat with AI to browse products, ask questions, and get recommendations
+- **AI-Driven UI** - Dynamic, context-aware UI components rendered directly in chat responses
+- **Smart Search** - Natural language product search and filtering
+- **Personalized Recommendations** - AI-powered suggestions based on preferences and browsing history
+- **Seamless Checkout** - Complete purchases without leaving the conversation
+
+## Tech Stack
+
+### Frontend
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library with latest features
+- **TypeScript 5** - Type-safe development
+- **Tailwind CSS 4** - Utility-first styling
+- **shadcn/ui** - Accessible component library (Radix UI + CVA)
+- **Motion** - Animation library
+- **Hugeicons** - Icon library
+
+### Backend & Data
+- **oRPC** - End-to-end typesafe API layer
+- **Drizzle ORM** - TypeScript ORM for PostgreSQL
+- **PostgreSQL** - Primary database
+- **Better Auth** - Authentication system
+
+### State & Forms
+- **TanStack Query** - Server state management
+- **TanStack Form** - Form handling with Zod validation
+- **Zustand** - Client state management
+- **nuqs** - URL state management
+
+### Tooling
+- **T3 Env** - Type-safe environment variables
+- **Zod** - Schema validation
+- **ESLint** - Code linting
+
+## Prerequisites
+
+- [Bun](https://bun.sh/) (v1.0+)
+- [PostgreSQL](https://www.postgresql.org/) (v14+)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+git clone <repository-url>
+cd ai-ecommerce
+```
+
+### 2. Install dependencies
+
+```bash
+bun install
+```
+
+### 3. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your values:
+
+```env
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/ai_ecommerce
+
+# Authentication
+BETTER_AUTH_SECRET=your-secret-key-min-32-characters-long
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+### 4. Set up the database
+
+```bash
+# Push schema to database (development)
+bun run db:push
+
+# Or generate and run migrations (production)
+bun run db:generate
+bun run db:migrate
+```
+
+### 5. Start the development server
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `bun dev` | Start development server |
+| `bun run build` | Create production build |
+| `bun start` | Start production server |
+| `bun run lint` | Run ESLint |
+| `bun run db:generate` | Generate database migrations |
+| `bun run db:migrate` | Apply database migrations |
+| `bun run db:push` | Push schema to database (dev) |
+| `bun run db:studio` | Open Drizzle Studio |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/                  # Next.js App Router
+│   ├── api/              # API routes
+│   ├── auth/             # Authentication pages
+│   └── env.ts            # Environment validation
+├── components/
+│   ├── ui/               # shadcn UI components
+│   └── forms/            # Form field components
+├── db/
+│   ├── index.ts          # Database client
+│   └── schema/           # Drizzle schemas (by feature)
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+└── drizzle/              # Generated migrations
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private
