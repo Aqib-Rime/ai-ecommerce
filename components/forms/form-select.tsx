@@ -8,7 +8,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Field, FieldLabel, FieldDescription, FieldError } from "@/components/ui/field";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 
 export interface SelectOption {
   label: string;
@@ -61,7 +66,7 @@ export function FormSelect({
           ))}
         </SelectContent>
       </Select>
-      <FieldError errors={field.state.meta.errors.map((e) => ({ message: String(e) }))} />
+      <FieldError />
     </Field>
   );
 }
