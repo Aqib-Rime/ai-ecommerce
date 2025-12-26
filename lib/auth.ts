@@ -34,4 +34,10 @@ export const auth = betterAuth({
       defaultRole: "user",
     }),
   ],
+  advanced: {
+    ipAddress: {
+      ipAddressHeaders: ["x-forwarded-for", "x-real-ip", "x-client-ip"],
+      disableIpTracking: false,
+    },
+  },
 });

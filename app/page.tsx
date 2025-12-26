@@ -2,10 +2,12 @@ import { getServerSession } from "@/lib/get-server-session";
 import { api } from "@/orpc/server";
 import { Suspense } from "react";
 import { PageClient } from "./page.client";
+import { Navbar } from "@/features/navbar/components/navbar";
 
 export default async function Page() {
   return (
     <>
+      <Navbar />
       <Suspense fallback={<div>Loading...</div>}>
         <SessionInfo />
       </Suspense>

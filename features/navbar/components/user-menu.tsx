@@ -11,8 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { User02Icon, Logout03Icon } from "@hugeicons/core-free-icons";
+import { User, LogOut } from "lucide-react";
 
 export function UserMenu() {
   const { data: session, isPending } = useSession();
@@ -33,7 +32,7 @@ export function UserMenu() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="default" className="gap-2">
-          <HugeiconsIcon icon={User02Icon} strokeWidth={2} />
+          <User />
           <span className="max-w-32 truncate">{session.user.name}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -48,7 +47,7 @@ export function UserMenu() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()} variant="destructive">
-          <HugeiconsIcon icon={Logout03Icon} strokeWidth={2} />
+          <LogOut />
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
